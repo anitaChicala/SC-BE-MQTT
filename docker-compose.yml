@@ -1,0 +1,39 @@
+version: "3"
+services:
+  #Backend Server
+  server:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    container_name: "sc-server-mqtt-authetication"
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://ana:${POSTGRES_PASSWORD}@sc-development-postgres-mqtt-authentication:5432/sc-main
+    volumes:
+      # - ./server/src/statics:/home/node/app/build/nodered
+      # - /home/jp/statics:/home/node/app/build/statics
+      - /var/statics:/home/node/app/build/statics
+
+    ports:
+      - ${PORT_SC}:3001
+    networks:
+      - default
+
+
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: "sc-development-postgres-mqtt-authentication"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ana
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: sc-main
+    ports:
+      - ${PGSQL_PORT}:5432
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
