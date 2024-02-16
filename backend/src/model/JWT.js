@@ -1,9 +1,11 @@
 import Sequelize from "sequelize";
+// var Sequelize = require("sequelize")
+
 import { sequelize } from "../database/database";
 
 const short = require("short-uuid");
 
-const Token = sequelize.define("JWT", {
+const JWT = sequelize.define("JWT", {
   id: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -19,7 +21,6 @@ const Token = sequelize.define("JWT", {
 
   expiration: {
     type: Sequelize.STRING,
-    allowNull: false
   },
   from: {
     type: Sequelize.STRING,

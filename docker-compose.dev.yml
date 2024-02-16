@@ -2,7 +2,7 @@ version: "3"
 services:
   server:
       build:
-        context: ./src
+        context: ./backend
         dockerfile: Dockerfile-Dev
       container_name: "sc-server-mqtt-authetication"
       restart: unless-stopped
@@ -18,10 +18,9 @@ services:
       # command: npm run start
       ports:
         - ${PORT_SC}:3001
-        - 9229:9229
       volumes:
-        # - ./src:/server/node/app
-        - /server/node/app/node_modules
+        - ./backend:/server/node/app
+        # - /server/node/app/node_modules
         # - /var/statics:/server/node/app/src/statics
 
       networks:

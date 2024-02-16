@@ -7,6 +7,10 @@ COPY . /server/node/app
 
 WORKDIR /server/node/app
 
-# CMD npm install
+RUN npm install && \
+    npm cache clean --force
 
-CMD npm run build
+# CMD npm install
+RUN npm run build
+
+CMD npm run start

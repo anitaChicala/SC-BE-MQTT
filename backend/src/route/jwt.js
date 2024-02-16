@@ -1,8 +1,8 @@
 import { Router } from 'express'
-
+// var { Router } = require('express')
 const router = Router()
 
-import JWT from '../models/JWT';
+import JWT from '../model/JWT';
 
 
 
@@ -18,14 +18,21 @@ function isInDB(token){
 
 router
     .post('/saveToken', async (req, res) => {
-    
-    var t = req.body.token
+    var jwt = req.body.token
 
-    var d = decodeJWT(t)
-    var e = d.exp
-    var f = d.iss
+
+    var d = decodeJWT(jwt)
+    console.log(d);
+    console.log(d.exp);
+    var expiration = d.exp +""
+    var from = d.iss + ""
+
+
+    console.log(expiration, from);
+
+
     const newJwt = await JWT.create(
-        {  token, e, f },
+        {  jwt, expiration, from },
         {
           fields: [ "jwt", "expiration", "from"],
         }
@@ -34,12 +41,27 @@ router
       if (newJwt) {
         res.status(200).json({
           message: "Jwt saved",
+          jwt:newJwt
         });
       }
 
 
   })
+  .get('/', async (req, res) => {
+    
+    //Si esta en la base de datos okey
+    
+    var j = await JWT.findAll()
 
+    if(j) {
+        res.status(200).send({
+            // user,
+            jwts: j
+          })
+    }
+
+    
+  })
   .post('/', async (req, res) => {
     
     //Si esta en la base de datos okey
@@ -64,11 +86,12 @@ router
   .post('/user', async (req, res) => {
     //Si esta en la base de datos okey
     var token = req.headers.authorization
-    var t = decodeJWT(token)
+    token = token.split(' ')[1]
+
 
     var j = await JWT.findOne({
         where: {
-            jwt:t
+            jwt:token
         }
     })
 
@@ -85,11 +108,13 @@ router
   .post('/superuser', async (req, res) => {
     //Si esta en la base de datos okey
     var token = req.headers.authorization
-    var t = decodeJWT(token)
+    token = token.split(' ')[1]
+
+    
 
     var j = await JWT.findOne({
         where: {
-            jwt:t
+            jwt:token
         }
     })
 
@@ -105,11 +130,15 @@ router
   .post('/acl', async  (req, res) => {
     //Si esta en la base de datos okey
     var token = req.headers.authorization
+    token = token.split(' ')[1]
+
     var t = decodeJWT(token)
+    console.log(t);
+
 
     var j = await JWT.findOne({
         where: {
-            jwt:t
+            jwt:token
         }
     })
 

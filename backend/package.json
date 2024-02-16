@@ -1,0 +1,46 @@
+{
+  "name": "sc-be-mqtt",
+  "version": "1.0.0",
+  "description": "",
+
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -L ./src/server.js --inspect=0.0.0.0 --exec babel-node",
+    "start": "node ./build/server.js",
+    "build": "npm run build-node",
+    "build-node": "babel ./src --out-dir ./build --source-maps --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anitaChicala/SC-BE-MQTT.git"
+  },
+  "author": "Ana Chicala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anitaChicala/SC-BE-MQTT/issues"
+  },
+  "homepage": "https://github.com/anitaChicala/SC-BE-MQTT#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.29.1",
+    "short-uuid": "^4.2.2",
+    "uuid": "^9.0.0"
+
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.3"
+  }
+}

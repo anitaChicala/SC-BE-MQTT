@@ -1,6 +1,6 @@
 var express = require('express') //llamamos a Express
 const cors = require('cors')
-var cron = require('node-cron');
+// var cron = require('node-cron');
 
 
 
@@ -12,20 +12,18 @@ const corsOptions = {
 }
 const app = express()
 app.use(cors(corsOptions))
+const pgsql = require('./lib/pgsql')
 
 
 
 // require routes
-require('./lib/routes')(app)
+require('./route/routes')(app)
 
 
-var port = process.env.PORT || 8080  // establecemos nuestro puerto
+var port = 3001  // establecemos nuestro puerto
 
-
-// Start server
-const port = 3001
-
-
-app.listen(port, () =>
+pgsql.syncModel().then(() => {
+  app.listen(port, () =>
   console.log(`Listening on ${port}...  on ENV ${process.env.NODE_ENV}`)
-)
+  )
+})
