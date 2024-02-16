@@ -7,6 +7,7 @@ import JWT from '../model/JWT';
 
 
 function decodeJWT(token) {
+  token = JSON.stringify(token)
     return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
 }
 
