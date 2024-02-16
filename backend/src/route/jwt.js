@@ -7,9 +7,15 @@ import JWT from '../model/JWT';
 
 
 function decodeJWT(token) {
+
+  try {
+   
   token = JSON.stringify(token)
-    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
-}
+  return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+
+  } catch (error) {
+  console.log(error , "token: "+ token);    
+  }}
 
 
 function isInDB(token){
