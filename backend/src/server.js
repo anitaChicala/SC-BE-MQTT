@@ -2,6 +2,7 @@ var express = require('express') //llamamos a Express
 const cors = require('cors')
 // var cron = require('node-cron');
 
+require('./lib/redis')
 
 
 const corsOptions = {
