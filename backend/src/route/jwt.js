@@ -112,7 +112,7 @@ router
       var token = req.headers.authorization
       token = token.split(' ')[1]
 
-      var d = decodeJWT(token)
+    
       // console.log(d);
       // console.log(d.exp);
       // var expiration = d.exp + ""
@@ -137,7 +137,7 @@ router
           message: 'JWT valid'
         })
       }
-
+      var d = decodeJWT(token)
 
       var data = await redis.getTokenValor(
         `${d.email}/${token}`
@@ -167,8 +167,7 @@ router
       //Si esta en la base de datos okey
       var token = req.headers.authorization
       token = token.split(' ')[1]
-      var d = decodeJWT(token)
-
+      
 
       if (
         token === "rcsi" ||
@@ -190,6 +189,7 @@ router
         })
       }
 
+      var d = decodeJWT(token)
 
       var data = await redis.getTokenValor(
         `${d.email}/${token}`
@@ -221,8 +221,7 @@ router
       //Si esta en la base de datos okey
       var token = req.headers.authorization
       token = token.split(' ')[1]
-      var d = decodeJWT(token)
-
+    
       if (
         token === "rcsi" ||
         token === "cloud" ||
@@ -243,6 +242,7 @@ router
         })
       }
 
+      var d = decodeJWT(token)
 
       var data = await redis.getTokenValor(
         `${d.email}/${token}`
