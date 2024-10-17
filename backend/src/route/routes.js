@@ -1,7 +1,6 @@
 import express, { json } from 'express' // Body parser is now included on express
 
 
-const path = require('path')
 // const cors = require('cors')
 const morgan = require('morgan')
 const helmet = require('helmet')

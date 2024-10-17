@@ -13,7 +13,7 @@ const corsOptions = {
 }
 const app = express()
 app.use(cors(corsOptions))
-const pgsql = require('./lib/pgsql')
+// const pgsql = require('./lib/pgsql')
 
 
 
@@ -23,8 +23,9 @@ require('./route/routes')(app)
 
 var port = 3001  // establecemos nuestro puerto
 
-pgsql.syncModel().then(() => {
-  app.listen(port, () =>
+// pgsql.syncModel().then(() => {
+
+// })
+app.listen(port, () =>
   console.log(`Listening on ${port}...  on ENV ${process.env.NODE_ENV}`)
-  )
-})
+)

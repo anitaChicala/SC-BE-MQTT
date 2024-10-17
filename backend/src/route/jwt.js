@@ -3,7 +3,7 @@ import { Router } from 'express'
 const router = Router()
 const redis = require("../lib/redis");
 
-import JWT from '../model/JWT';
+// import JWT from '../model/JWT';
 
 
 
@@ -21,9 +21,9 @@ function decodeJWT(token) {
 }
 
 
-function isInDB(token) {
+// function isInDB(token) {
 
-}
+// }
 
 
 router
