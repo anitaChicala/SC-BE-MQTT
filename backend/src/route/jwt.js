@@ -45,7 +45,7 @@ router
       var message = JSON.stringify(obj);
 
       await redis.saveTokenValor(
-        `${jwt}/data`,
+        `${d.email}/${jwt}`,
         message
       );
 
@@ -69,38 +69,38 @@ router
 
     //Si esta en la base de datos okey
 
-    var j = await JWT.findAll()
+    // var j = await JWT.findAll()
 
-    if (j) {
-      res.status(200).send({
-        // user,
-        jwts: j
-      })
-    }
+    // if (j) {
+    //   res.status(200).send({
+    //     // user,
+    //     jwts: j
+    //   })
+    // }
 
 
   })
   .post('/', async (req, res) => {
-    try {
-      //Si esta en la base de datos okey
-      var token = req.headers.authorization
-      var t = decodeJWT(token)
+    // try {
+    //   //Si esta en la base de datos okey
+    //   var token = req.headers.authorization
+    //   var t = decodeJWT(token)
 
-      var data = await redis.getTokenValor(
-        `${t}/data`
-      );
+    //   var data = await redis.getTokenValor(
+    //     `${t}/data`
+    //   );
 
-      if (data) {
-        res.status(200).send({
-          message: 'JWT valid'
-        })
-      }
-    } catch (error) {
-      res.status(500).json({
-        message: "MQTT Server had a problem",
-        error: error
-      });
-    }
+    //   if (data) {
+    //     res.status(200).send({
+    //       message: 'JWT valid'
+    //     })
+    //   }
+    // } catch (error) {
+    //   res.status(500).json({
+    //     message: "MQTT Server had a problem",
+    //     error: error
+    //   });
+    // }
 
 
 
@@ -112,6 +112,11 @@ router
       var token = req.headers.authorization
       token = token.split(' ')[1]
 
+      var d = decodeJWT(token)
+      // console.log(d);
+      // console.log(d.exp);
+      // var expiration = d.exp + ""
+      // var from = d.iss + ""
 
       if (
         token === "rcsi" ||
@@ -120,6 +125,7 @@ router
         token === "dublinoak" ||
         token === "tesco" ||
         token === "tara" ||
+        token === "pwc" ||
         token === "hibernia" ||
         token === "blackrock" ||
         token === "em" ||
@@ -134,7 +140,7 @@ router
 
 
       var data = await redis.getTokenValor(
-        `${token}/data`
+        `${d.email}/${token}`
       );
 
       if (data) {
@@ -161,6 +167,8 @@ router
       //Si esta en la base de datos okey
       var token = req.headers.authorization
       token = token.split(' ')[1]
+      var d = decodeJWT(token)
+
 
       if (
         token === "rcsi" ||
@@ -168,6 +176,7 @@ router
         token === "symphony" ||
         token === "dublinoak" ||
         token === "tesco" ||
+        token === "pwc" ||
         token === "tara" ||
         token === "hibernia" ||
         token === "blackrock" ||
@@ -183,7 +192,7 @@ router
 
 
       var data = await redis.getTokenValor(
-        `${token}/data`
+        `${d.email}/${token}`
       );
 
       if (data) {
@@ -212,6 +221,7 @@ router
       //Si esta en la base de datos okey
       var token = req.headers.authorization
       token = token.split(' ')[1]
+      var d = decodeJWT(token)
 
       if (
         token === "rcsi" ||
@@ -219,6 +229,7 @@ router
         token === "symphony" ||
         token === "dublinoak" ||
         token === "tesco" ||
+        token === "pwc" ||
         token === "tara" ||
         token === "hibernia" ||
         token === "blackrock" ||
@@ -234,7 +245,7 @@ router
 
 
       var data = await redis.getTokenValor(
-        `${token}/data`
+        `${d.email}/${token}`
       );
 
       if (data) {
