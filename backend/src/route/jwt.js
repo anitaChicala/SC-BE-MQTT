@@ -132,7 +132,7 @@ router
         token === "linx" ||
         token === "well"
       ) {
-        res.status(200).send({
+        return res.status(200).send({
           // user,
           message: 'JWT valid'
         })
@@ -183,7 +183,7 @@ router
         token === "linx" ||
         token === "well"
       ) {
-        res.status(200).send({
+        return res.status(200).send({
           // user,
           message: 'JWT valid'
         })
@@ -236,7 +236,7 @@ router
         token === "linx" ||
         token === "well"
       ) {
-        res.status(200).send({
+        return res.status(200).send({
           // user,
           message: 'JWT valid'
         })
