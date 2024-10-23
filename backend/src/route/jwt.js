@@ -147,6 +147,11 @@ router
         res.status(200).send({
           message: 'JWT valid'
         })
+      }else  {
+        res.status(500).json({
+          message: "MQTT not validation",
+          error: "user:"+ token
+        });
       }
 
     } catch (error) {
@@ -199,6 +204,11 @@ router
         res.status(200).send({
           message: 'JWT valid'
         })
+      }else  {
+        res.status(500).json({
+          message: "MQTT not validation",
+          error: "user:"+ token
+        });
       }
     } catch (error) {
       res.status(500).json({
@@ -252,6 +262,11 @@ router
         res.status(200).send({
           message: 'JWT valid'
         })
+      }else  {
+        res.status(500).json({
+          message: "MQTT not validation",
+          error: "user:"+ token
+        });
       }
     } catch (error) {
       res.status(500).json({
