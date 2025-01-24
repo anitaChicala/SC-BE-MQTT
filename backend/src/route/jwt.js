@@ -123,7 +123,7 @@ router
         token === "cloud" ||
         token === "symphony" ||
         token === "dublinoak" ||
-        token === "pwcgateway" ||
+        // token === "pwcgateway" ||
         token === "tesco" ||
         token === "tara" ||
         token === "pwc" ||
@@ -180,7 +180,7 @@ router
         token === "cloud" ||
         token === "symphony" ||
         token === "dublinoak" ||
-        token === "pwcgateway" ||
+        // token === "pwcgateway" ||
         token === "tesco" ||
         token === "pwc" ||
         token === "tara" ||
@@ -238,7 +238,7 @@ router
         token === "rcsi" ||
         token === "cloud" ||
         token === "symphony" ||
-        token === "pwcgateway" ||
+        // token === "pwcgateway" ||
         token === "dublinoak" ||
         token === "tesco" ||
         token === "pwc" ||
