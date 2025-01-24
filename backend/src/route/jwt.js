@@ -238,7 +238,7 @@ router
         token === "rcsi" ||
         token === "cloud" ||
         token === "symphony" ||
-        // token === "pwcgateway" ||
+        token === "pwcgateway" ||
         token === "dublinoak" ||
         token === "tesco" ||
         token === "pwc" ||
