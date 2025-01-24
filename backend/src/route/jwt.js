@@ -236,7 +236,7 @@ router
     
       if (
         token === "rcsi" ||
-        // token === "cloud" ||
+        token === "cloud" ||
         token === "symphony" ||
         token === "pwcgateway2" ||
         token === "dublinoak" ||
