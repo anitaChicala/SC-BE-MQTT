@@ -118,26 +118,26 @@ router
       // var expiration = d.exp + ""
       // var from = d.iss + ""
 
-      if (
-        token === "rcsi" ||
-        // token === "cloud" ||
-        token === "symphony" ||
-        token === "dublinoak" ||
-        // token === "pwcgateway" ||
-        token === "tesco" ||
-        token === "tara" ||
-        token === "pwc" ||
-        token === "hibernia" ||
-        token === "blackrock" ||
-        token === "em" ||
-        token === "linx" ||
-        token === "well"
-      ) {
-        return res.status(200).send({
-          // user,
-          message: 'JWT valid'
-        })
-      }
+      // if (
+      //   // token === "rcsi" ||
+      //   // // token === "cloud" ||
+      //   // token === "symphony" ||
+      //   // token === "dublinoak" ||
+      //   // // token === "pwcgateway" ||
+      //   // token === "tesco" ||
+      //   // token === "tara" ||
+      //   // token === "pwc" ||
+      //   // token === "hibernia" ||
+      //   // token === "blackrock" ||
+      //   // token === "em" ||
+      //   // token === "linx" ||
+      //   // token === "well"
+      // ) {
+      //   return res.status(200).send({
+      //     // user,
+      //     message: 'JWT valid'
+      //   })
+      // }
       var d = decodeJWT(token)
 
       var data = await redis.getTokenValor(
@@ -175,26 +175,26 @@ router
       token = token.split(' ')[1]
       
 
-      if (
-        token === "rcsi" ||
-        token === "cloud" ||
-        token === "symphony" ||
-        token === "dublinoak" ||
-        // token === "pwcgateway" ||
-        token === "tesco" ||
-        token === "pwc" ||
-        token === "tara" ||
-        token === "hibernia" ||
-        token === "blackrock" ||
-        token === "em" ||
-        token === "linx" ||
-        token === "well"
-      ) {
-        return res.status(200).send({
-          // user,
-          message: 'JWT valid'
-        })
-      }
+      // if (
+      //   token === "rcsi" ||
+      //   token === "cloud" ||
+      //   token === "symphony" ||
+      //   token === "dublinoak" ||
+      //   // token === "pwcgateway" ||
+      //   token === "tesco" ||
+      //   token === "pwc" ||
+      //   token === "tara" ||
+      //   token === "hibernia" ||
+      //   token === "blackrock" ||
+      //   token === "em" ||
+      //   token === "linx" ||
+      //   token === "well"
+      // ) {
+      //   return res.status(200).send({
+      //     // user,
+      //     message: 'JWT valid'
+      //   })
+      // }
 
       var d = decodeJWT(token)
 
@@ -238,7 +238,7 @@ router
         token === "rcsi" ||
         token === "cloud" ||
         token === "symphony" ||
-        token === "pwcgateway2" ||
+        token === "pwcgateway" ||
         token === "dublinoak" ||
         token === "tesco" ||
         token === "pwc" ||
