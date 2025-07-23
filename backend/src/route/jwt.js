@@ -115,31 +115,6 @@ router
       token = token.split(' ')[1]
 
     
-      // console.log(d);
-      // console.log(d.exp);
-      // var expiration = d.exp + ""
-      // var from = d.iss + ""
-
-      // if (
-      //   // token === "rcsi" ||
-      //   // // token === "cloud" ||
-      //   // token === "symphony" ||
-      //   // token === "dublinoak" ||
-      //   // // token === "pwcgateway" ||
-      //   // token === "tesco" ||
-      //   // token === "tara" ||
-      //   // token === "pwc" ||
-      //   // token === "hibernia" ||
-      //   // token === "blackrock" ||
-      //   // token === "em" ||
-      //   // token === "linx" ||
-      //   // token === "well"
-      // ) {
-      //   return res.status(200).send({
-      //     // user,
-      //     message: 'JWT valid'
-      //   })
-      // }
       var d = decodeJWT(token)
 
       var data = await redis.getTokenValor(
@@ -151,6 +126,8 @@ router
           message: 'JWT valid'
         })
       }else  {
+              console.log( "user:"+ token)
+
         res.status(500).json({
           message: "MQTT not validation",
           error: "user:"+ token
@@ -252,6 +229,8 @@ router
           message: 'JWT valid'
         })
       }else  {
+        console.log("user:"+ token)
+
         res.status(500).json({
           message: "MQTT not validation",
           error: "user:"+ token
