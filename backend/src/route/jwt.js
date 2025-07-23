@@ -56,6 +56,8 @@ router
       });
       // }
     } catch (error) {
+            console.log('/saveToken', error)
+
       res.status(500).json({
         message: "MQTT Server had a problem",
         error: error
@@ -65,46 +67,46 @@ router
 
 
   })
-  .get('/', async (req, res) => {
+  // .get('/', async (req, res) => {
 
-    //Si esta en la base de datos okey
+  //   //Si esta en la base de datos okey
 
-    // var j = await JWT.findAll()
+  //   // var j = await JWT.findAll()
 
-    // if (j) {
-    //   res.status(200).send({
-    //     // user,
-    //     jwts: j
-    //   })
-    // }
-
-
-  })
-  .post('/', async (req, res) => {
-    // try {
-    //   //Si esta en la base de datos okey
-    //   var token = req.headers.authorization
-    //   var t = decodeJWT(token)
-
-    //   var data = await redis.getTokenValor(
-    //     `${t}/data`
-    //   );
-
-    //   if (data) {
-    //     res.status(200).send({
-    //       message: 'JWT valid'
-    //     })
-    //   }
-    // } catch (error) {
-    //   res.status(500).json({
-    //     message: "MQTT Server had a problem",
-    //     error: error
-    //   });
-    // }
+  //   // if (j) {
+  //   //   res.status(200).send({
+  //   //     // user,
+  //   //     jwts: j
+  //   //   })
+  //   // }
 
 
+  // })
+  // .post('/', async (req, res) => {
+  //   // try {
+  //   //   //Si esta en la base de datos okey
+  //   //   var token = req.headers.authorization
+  //   //   var t = decodeJWT(token)
 
-  })
+  //   //   var data = await redis.getTokenValor(
+  //   //     `${t}/data`
+  //   //   );
+
+  //   //   if (data) {
+  //   //     res.status(200).send({
+  //   //       message: 'JWT valid'
+  //   //     })
+  //   //   }
+  //   // } catch (error) {
+  //   //   res.status(500).json({
+  //   //     message: "MQTT Server had a problem",
+  //   //     error: error
+  //   //   });
+  //   // }
+
+
+
+  // })
   .post('/user', async (req, res) => {
 
     try {
@@ -156,6 +158,7 @@ router
       }
 
     } catch (error) {
+      console.log('/user',error)
       res.status(500).json({
         message: "MQTT Server had a problem",
         error: error
@@ -175,26 +178,7 @@ router
       token = token.split(' ')[1]
       
 
-      // if (
-      //   token === "rcsi" ||
-      //   token === "cloud" ||
-      //   token === "symphony" ||
-      //   token === "dublinoak" ||
-      //   // token === "pwcgateway" ||
-      //   token === "tesco" ||
-      //   token === "pwc" ||
-      //   token === "tara" ||
-      //   token === "hibernia" ||
-      //   token === "blackrock" ||
-      //   token === "em" ||
-      //   token === "linx" ||
-      //   token === "well"
-      // ) {
-      //   return res.status(200).send({
-      //     // user,
-      //     message: 'JWT valid'
-      //   })
-      // }
+    
 
       var d = decodeJWT(token)
 
@@ -213,6 +197,8 @@ router
         });
       }
     } catch (error) {
+            console.log('/superuser',error)
+
       res.status(500).json({
         message: "MQTT Server had a problem",
         error: error
@@ -272,6 +258,8 @@ router
         });
       }
     } catch (error) {
+            console.log('/acl',error)
+
       res.status(500).json({
         message: "MQTT Server had a problem",
         error: error

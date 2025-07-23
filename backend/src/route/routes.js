@@ -16,8 +16,5 @@ module.exports = (app) => {
   }))
  
   app.use('/jwt', jwt)
-
-  
-  
   app.disable('etag') // to avoid the 304 code instead of the actual code I want to send
 }
